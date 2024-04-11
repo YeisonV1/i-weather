@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.current-weather{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    background-color: pink;
+}
+.card{
+
+    background-color: gray;
+}
+
+
+
+
+
+
+
+
+.errorBox{
+
+    background-color: green;
+}

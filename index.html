@@ -3,21 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
 <body>
-   <div><h1>I-Weather</h1></div>
+    <div class="container">
+        <h1>I-Weather</h1>
 
-   <div class="container">
-    <div class="city-input">
-        <input type="text" placeholder="New York">
-        <button class="search-btn">Search</button>
-    </div>
-    <div class="weather-data">
-        <div class="current-weather">
-            
+        <form action="" class="weatherForm">
+            <input type="text" class="city-input" placeholder="Enter City">
+            <button type="submit">Search</button>
+        </form>
+
+        <!--Current Weather-->
+        <div class="current-weather" >
+            <h3 class="cityName">NJ</h3>
+            <p class="temp">3330</p>
+            <p class="humidity">humidity: 60%</p>
+            <p class="skies"></p>
+            <p class="errorBox"></p>
+        </div>
+        
+        <!--5 Day Forecast-->
+        <div class="card">
+            <h3 class="weekWeather">NJ</h3>
+            <p class="temp"> 50</p>
+            <p class="humidity">humidity: 60%</p>
+            <p class="skies"></p>
+            <p class="errorBox"></p>
+        </div>
+        <div class="card">
+            <h3 class="weekWeather">NJ</h3>
+            <p class="temp"> 50</p>
+            <p class="humidity">humidity: 60%</p>
+            <p class="skies"></p>
+            <p class="errorBox"></p>
+        </div>
+        <div class="card">
+            <h3 class="weekWeather">NJ</h3>
+            <p class="temp"> 50</p>
+            <p class="humidity">humidity: 60%</p>
+            <p class="skies"></p>
+            <p class="errorBox"></p>
+        </div>
+        <div class="card">
+            <h3 class="weekWeather">NJ</h3>
+            <p class="temp"> 50</p>
+            <p class="humidity">humidity: 60%</p>
+            <p class="skies"></p>
+            <p class="errorBox"></p>
         </div>
     </div>
-   </div>
+
+    <script src="assets/script.js"></script>
 </body>
 </html>
