@@ -3,7 +3,10 @@
     padding: 0;
 }
 
-
+body{
+    background-color: rgb(107, 136, 251);
+   
+}
 
 .container{
     display: flex;
@@ -11,63 +14,121 @@
     align-content: center;
     justify-content: center;
     align-items: center;
-    background-color: green;
-    margin: 30px;
-    border-radius: 15px;
+    margin: 65px;
+    border-radius: 80px;
 }
 
+        /*Site title*/
 h1{
     display: flex;
-    background-color: gray;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    margin-top: 60px;
+    font-family: "Seymour One", sans-serif;
+    font-size: 40px;
+    color: whitesmoke;
+    letter-spacing: 15px;
 }
 
+
+        /*Search Bar*/
+.city-input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px 0px 5px 15px;
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+   border: none;
+}
+
+
+        /*Search Btn*/
+button{
+    cursor: pointer;
+    border-radius: 100px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+            /* Current Weather*/
 .current-weather{
     display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center; 
-    flex-wrap: wrap;
-    background-color: pink;
     width: 100%;
-    height: 200px;
-    gap: 3rem;
-    padding: 20px 0 20px 0;
+    height: 600px;
+    flex-direction: column;
 }
 
-.current-weather h3{
+
+            /*Current Weather City Name*/
+.current-card h1{
+    color: rgb(68, 174, 23);
     font-size: 50px;
-    color: white;
 }
 
+
+            /*Current Weather Card*/
+.current-card{
+    gap: 1rem;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 30px;
+    box-shadow: inset black 0px 0px 15px 1px;
+}
+
+            /*Current Weather Temp,Humid*/
 .current-weather p{
-    font-size: 20px;
+    display: flex;
+    margin: 0;
+    padding: 30px;
+    font-size: 80px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+
+        /*5 Day Forecast */
 .forecast{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 30px;
-    gap: 1rem;
+    gap: 6rem;
     
 }
+
+        /*5 Day Forecast card*/
 
 .card{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: gray;
-    border: 5px solid  red;
+    background-color: rgb(255, 255, 255);
+    box-shadow: inset black 0px 0px 15px 1px;
     height: 300px;
-    width: 240px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 25%;
+    gap: 3rem;
 }
+
+
+        /*5 Day Forecast Date */
 
 .card h3{
-    font-size: 50px;
+    font-family: "Seymour One", sans-serif;
+    font-size: 27px;
+    color: rgb(68, 174, 23);
+
+}
+
+        /*5 Day Forecast Temp,Humid*/
+.card p{
+    font-size: 40px;
+    font-weight: 650;
 }
 
 
@@ -77,7 +138,3 @@ h1{
 
 
 
-.errorBox{
-
-    background-color: green;
-}

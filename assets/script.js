@@ -1,57 +1,104 @@
-const weatherForm = document.querySelector(".weatherForm");
-const currenWeather = document.querySelector(".current-weather");
+const searchBtn = document.querySelector(".searchBtn");
+const currentWeather = document.querySelector(".current-weather");
 const card = document.querySelector(".card");
-const cityInput = document.querySelector(".city-input").value;
+const forecast = document.querySelector(".forecast");
+
+
+const cityInput = document.querySelector(".city-input");
 const apiKey = "b15aeb961955ea92ceafd357638098e2";
 
 
-weatherForm.addEventListener("submit", event => {
 
-    event.preventDefault();
+const forecastWeekDisplay = (cityName, weatherDisplay, i) =>{
 
-    if(!cityInput){
-        displayError("Enter a city")
+    if(i === 0){
+        // Current Weather
+        return `<div class="current-card">
+                    <h1>${cityName} </h1>
+                    <p>${((weatherDisplay.main.temp - 273.15)* 9/5 + 32).toFixed(1)}°F</p>
+                    <p>Humidity: ${weatherDisplay.main.humidity}%</p>
+                </div>`
     }else{
-        weatherData(cityInput);
-        displayWeatherInfo(weatherInfo);
-    };
-});
+        // 5 Day Forecast
+        return `<div class="card">
+                    <h3>${weatherDisplay.dt_txt.split(" ")[0]}</h3>
+                    <p>${((weatherDisplay.main.temp - 273.15)* 9/5 + 32).toFixed(1)}°F</p>
+                    <p>Humidity: ${weatherDisplay.main.humidity}%</p>
+                </div>`
+    }
 
+};
 
-function weatherData(city) {
-   
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}`)
+// Forecast data weather
+ const getForecastWeek = (cityName, lat, lon) => {
+
+    const fiveForecast = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     
-    .then(respone => {
-        if(!respone.ok){
-            displayError("Error")
-        }else{
-            return respone.json()
-        };
-    })
+   
+    fetch(fiveForecast)
+    
+    .then(respone => respone.json())
+    
     .then(data => {
-        console.log(data)
-    })
-    .catch(error => {
-        console.error(error)
+        
+        const newForecastDays = [];
+        const fiveDayForecast = data.list.filter(forecast => {
+            const dateOfDays = new Date(forecast.dt_txt).getDate();
+            
+            if(!newForecastDays.includes(dateOfDays)){
+                return newForecastDays.push(dateOfDays);
+            }
+        });
+        cityInput.value = "";
+
+        
+        currentWeather.innerHTML = "";
+        forecast.innerHTML = "";
+        
+        console.log(data);
+        currentWeather.style.display = "flex";
+        forecast.style.display = "flex";
+        
+
+
        
+        fiveDayForecast.forEach((weatherDisplay, i) => {
+            if(i === 0){
+                currentWeather.insertAdjacentHTML("beforeend",forecastWeekDisplay(cityName, weatherDisplay, i));
+
+            }else{
+                forecast.insertAdjacentHTML("beforeend",forecastWeekDisplay(cityName, weatherDisplay, i));
+            }
+            
+        });
+        
+    }).catch(() => {
+        alert("catch error")
     });
-
-    console.log(respone);
-} 
-
-
-
-
-
-function displayError(message){
-
-    const errorBox = document.createElement("p");
-    errorBox.textContent = message;
-    errorBox =classList.add("errorBox");
-
-    // display on the card
-    currenWeather.textContent = "";
-    currenWeather.style.display = "flex";
-    currenWeather.appendChild(errorBox);
+    
 }
+
+// current weather data
+const getWeatherData = () => {
+    const cityName = cityInput.value;
+
+    if(!cityName) return;
+   const geoApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`;
+    
+   fetch(geoApiUrl)
+   
+   .then(respone => respone.json())
+   
+   .then(data => {
+    
+    if(!data.length) return alert("Didnt work");
+    const {name, lat, lon} = data[0];
+    getForecastWeek(name, lat, lon);
+    
+    }).catch(() => {
+        alert("error");
+    });
+}
+// click BTN
+searchBtn.addEventListener("click", getWeatherData);
+

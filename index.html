@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Seymour+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
@@ -12,51 +15,30 @@
     <div class="container">
         
 
-        <form action="" class="weatherForm">
+        <div action="" class="weatherForm">
             <input type="text" class="city-input" placeholder="Enter City">
-            <button type="submit">Search</button>
-        </form>
+            <button class="searchBtn" type="submit">Search</button>
+        </div>
 
         <!--Current Weather-->
         <div class="current-weather" >
-            <h3 class="cityName">NJ</h3>
-            <p class="temp">3330</p>
-            <p class="humidity">humidity: 60%</p>
-            <p class="skies"></p>
-            <p class="errorBox"></p>
+            <div class="current-card">
+                <h1></h1>
+                <p></p>
+                <p></p>
+            </div>
         </div>
         
         <!--5 Day Forecast-->
-        <div class="forecast">
+        <div class="forecast" >
             <div class="card">
-                <h3 class="weekWeather">NJ</h3>
-                <p class="temp"> 50</p>
-                <p class="humidity">humidity: 60%</p>
-                <p class="skies"></p>
-                <p class="errorBox"></p>
-            </div>
-            <div class="card">
-                <h3 class="weekWeather">NJ</h3>
-                <p class="temp"> 50</p>
-                <p class="humidity">humidity: 60%</p>
-                <p class="skies"></p>
-                <p class="errorBox"></p>
-            </div>
-            <div class="card">
-                <h3 class="weekWeather">NJ</h3>
-                <p class="temp"> 50</p>
-                <p class="humidity">humidity: 60%</p>
-                <p class="skies"></p>
-                <p class="errorBox"></p>
-            </div>
-            <div class="card">
-                <h3 class="weekWeather">NJ</h3>
-                <p class="temp"> 50</p>
-                <p class="humidity">humidity: 60%</p>
-                <p class="skies"></p>
-                <p class="errorBox"></p>
-            </div>
+                <h3></h3>
+                <p></p>
+                <p></p>
+             </div>
         </div>
+        
+        
     </div>
 
     <script src="assets/script.js"></script>
